@@ -4,6 +4,8 @@ import './App.css';
 import Accordion from './components/Accordion';
 import Dropdown from './components/Dropdown';
 import Search from './components/Search';
+import Translate from './components/Translate';
+import Route from './components/Route';
 
 
 
@@ -43,11 +45,24 @@ export default () => {
 
   return (
     <div>
-      <Dropdown 
-      options={options} 
-      selected={selected}
-      onSelectedChange={setSelected}
-      />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search/>
+      </Route>
+      <Route path="dropdown">
+        <Dropdown 
+        label="Select a color"
+        options={options}
+        selected={selected}
+        onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="translate">
+        <Translate />
+      </Route>
+
     </div>
   );
 };
