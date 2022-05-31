@@ -6,6 +6,7 @@ import Dropdown from './components/Dropdown';
 import Search from './components/Search';
 import Translate from './components/Translate';
 import Route from './components/Route';
+import Header from './components/Header';
 
 
 
@@ -45,13 +46,14 @@ export default () => {
 
   return (
     <div>
+      <Header/>
       <Route path="/">
         <Accordion items={items} />
       </Route>
       <Route path="/list">
         <Search/>
       </Route>
-      <Route path="dropdown">
+      <Route path="/dropdown">
         <Dropdown 
         label="Select a color"
         options={options}
@@ -59,7 +61,7 @@ export default () => {
         onSelectedChange={setSelected}
         />
       </Route>
-      <Route path="translate">
+      <Route path="/translate">
         <Translate />
       </Route>
 
